@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lib-online library</title>
+    {# Load the tag library #}
+    {% load bootstrap4 %}
+
+    {# Load CSS and JavaScript #}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+</head>
+<body>
+    {% block head %} {% endblock %}
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
+<script>
+    $(document).ready(function(){
+      $(".sr-only").remove()
+    });
+</script>

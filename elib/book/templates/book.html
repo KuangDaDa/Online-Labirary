@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block head %}
+<div class="container mb-5">
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb" style="background-color:white !important;">
+      <li class="breadcrumb-item active" aria-current="page"> <a href="{% url 'index' %}">Home</a></li>
+      <li class="breadcrumb-item">{{ book.name }}</li>
+    </ol>
+</nav>
+<hr>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-4">
+        <img src="{{ MEDIA_URL }}{{ book.book_cover }}" class="img-responsive" alt="Responsive image" style="width:240px; height:310px;">
+    </div>
+    <div class="col-md-4">
+        <ul class="list-unstyled text-justify">
+            <li class="h4">{{ book.name }}</li>
+            <li class="font-weight-normal mb-2"> Author: {{ book.author }}</li>
+            <li class="font-weight-normal mb-2"> Categories: 
+                {% for category in book.category.all %}  
+                {{ category.name }}
+                {% if not forloop.last %}
+                ,
+                {% endif %}
+                {% endfor %}</li>
+            <li class="font-weight-normal mb-2">Published date: {{ book.published_date | date:'Y-m-d' }}</li>
+            <li><a href="{{ book.download_url }}" target="_blank" style="text-decoration:none"> Download </a></li>
+        </ul>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+<p class="text-justify">{{ book.description }}</p>
+
+{% endblock %}
