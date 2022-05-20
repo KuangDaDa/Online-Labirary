@@ -18,5 +18,5 @@ Category - Simpley only have category.
 ##### Project setup
 - go to the elib directory with <b> manage.py </b> directory
 - install required python library (django=2.2,python_rest_framework,django-bootstrap4)
-- type "python manage.py runser " to run the project.
+- type "python manage.py runserver " to run the project.
 
